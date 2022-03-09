@@ -1,12 +1,15 @@
-function findCarById(inventory){
+function carYears(inventory,year){
+    let oldCars=[];
+    let count=0;
     for(let i=0;i<inventory.length;i++){
-        if(inventory[i]['id']===33){
-            console.log('Car 33 is a ', inventory[i].car_year,inventory[i].car_make,inventory[i].car_model);
+        if(inventory[i].car_year<2000){
+            oldCars.push(inventory[i].car_year);
+            count++;
         }
     }
+    console.log(oldCars);
+    console.log(`Total number of Old Cars : ${count}`);
 }
-
-
 let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year":2009},
 {"id":2,"car_make":"Mazda","car_model":"Miata MX-5","car_year":2001},
 {"id":3,"car_make":"Land Rover","car_model":"Defender Ice Edition","car_year":2010},
@@ -58,5 +61,4 @@ let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year"
 {"id":49,"car_make":"Chrysler","car_model":"Sebring","car_year":1996},
 {"id":50,"car_make":"Lincoln","car_model":"Town Car","car_year":1999}];
 
-const t1=findCarById(inventory)
-module.exports(t1);
+carYears(inventory,inventory.car_year);
